@@ -1,0 +1,1 @@
+export const NavTitle = "Verdammt Ai." as const

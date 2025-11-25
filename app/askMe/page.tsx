@@ -1,0 +1,1 @@
+export { AskMePage as default } from "@/pages/askMe"
