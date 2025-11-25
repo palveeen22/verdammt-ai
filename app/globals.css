@@ -221,3 +221,23 @@ body {
     opacity: 1;
   }
 }
+
+/* Smooth sidebar transition */
+[data-sidebar] {
+  transition: width 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Prevent text overflow during animation */
+[data-sidebar] [data-sidebar-menu-button] {
+  overflow: hidden;
+}
+
+/* Smooth icon transitions */
+[data-sidebar] svg {
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Hide scrollbar during collapse animation */
+[data-sidebar][data-state="collapsed"] {
+  overflow: hidden;
+}

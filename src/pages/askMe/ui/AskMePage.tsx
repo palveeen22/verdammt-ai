@@ -205,3 +205,161 @@ export const AskMePage = () => {
     </div>
   )
 }
+
+// 'use client';
+
+// import { useState } from 'react';
+// import {
+//   PenSquare,
+//   GraduationCap,
+//   Code2,
+//   Coffee,
+//   Lightbulb,
+//   Plus,
+//   Sparkles,
+//   Clock,
+//   ChevronDown,
+//   ArrowUp
+// } from 'lucide-react';
+
+// type SuggestionCategory = 'write' | 'learn' | 'code' | 'life' | 'choice';
+
+// interface Suggestion {
+//   icon: React.ComponentType<{ className?: string }>;
+//   label: string;
+//   category: SuggestionCategory;
+// }
+
+// const suggestions: Suggestion[] = [
+//   { icon: PenSquare, label: 'Write', category: 'write' },
+//   { icon: GraduationCap, label: 'Learn', category: 'learn' },
+//   { icon: Code2, label: 'Code', category: 'code' },
+//   { icon: Coffee, label: 'Life stuff', category: 'life' },
+//   { icon: Lightbulb, label: "Claude's choice", category: 'choice' },
+// ];
+
+// export const AskMePage = () => {
+//   const [prompt, setPrompt] = useState('');
+//   const [selectedModel, setSelectedModel] = useState('Sonnet 4.5');
+
+//   const handleSubmit = () => {
+//     if (prompt.trim()) {
+//       console.log('Submitting prompt:', prompt);
+//       // Handle submit logic here
+//     }
+//   };
+
+//   const handleKeyDown = (e: React.KeyboardEvent<HTMLTextAreaElement>) => {
+//     if (e.key === 'Enter' && !e.shiftKey) {
+//       e.preventDefault();
+//       handleSubmit();
+//     }
+//   };
+
+//   return (
+//     <div className="min-h-screen bg-[#1a1a1a] text-white flex flex-col items-center justify-center p-4">
+//       {/* Header */}
+//       <div className="w-full max-w-4xl mb-12">
+//         <div className="flex items-center gap-3 justify-center">
+//           <div className="text-orange-500">
+//             <svg
+//               className="w-8 h-8"
+//               viewBox="0 0 24 24"
+//               fill="currentColor"
+//             >
+//               <circle cx="12" cy="12" r="1.5" />
+//               <circle cx="12" cy="6" r="1.5" />
+//               <circle cx="12" cy="18" r="1.5" />
+//               <circle cx="18" cy="12" r="1.5" />
+//               <circle cx="6" cy="12" r="1.5" />
+//               <circle cx="16.5" cy="7.5" r="1.5" />
+//               <circle cx="7.5" cy="16.5" r="1.5" />
+//               <circle cx="16.5" cy="16.5" r="1.5" />
+//               <circle cx="7.5" cy="7.5" r="1.5" />
+//             </svg>
+//           </div>
+//           <h1 className="text-4xl font-serif text-gray-200">
+//             Evening, Alvin
+//           </h1>
+//         </div>
+//       </div>
+
+//       {/* Main Input Area */}
+//       <div className="w-full max-w-4xl">
+//         <div className="bg-[#2a2a2a] rounded-2xl shadow-2xl overflow-hidden">
+//           {/* Textarea */}
+//           <div className="p-6">
+//             <textarea
+//               value={prompt}
+//               onChange={(e) => setPrompt(e.target.value)}
+//               onKeyDown={handleKeyDown}
+//               placeholder="How can I help you today?"
+//               className="w-full bg-transparent text-gray-300 placeholder-gray-500 text-lg resize-none focus:outline-none min-h-[120px]"
+//               rows={4}
+//             />
+//           </div>
+
+//           {/* Bottom Bar */}
+//           <div className="px-6 pb-6 flex items-center justify-between">
+//             {/* Left Actions */}
+//             <div className="flex items-center gap-2">
+//               <button
+//                 className="p-2 hover:bg-[#3a3a3a] rounded-lg transition-colors"
+//                 aria-label="Add attachment"
+//               >
+//                 <Plus className="w-5 h-5 text-gray-400" />
+//               </button>
+//               <button
+//                 className="p-2 hover:bg-[#3a3a3a] rounded-lg transition-colors"
+//                 aria-label="Use AI features"
+//               >
+//                 <Sparkles className="w-5 h-5 text-gray-400" />
+//               </button>
+//               <button
+//                 className="p-2 hover:bg-[#3a3a3a] rounded-lg transition-colors"
+//                 aria-label="View history"
+//               >
+//                 <Clock className="w-5 h-5 text-gray-400" />
+//               </button>
+//             </div>
+
+//             {/* Right Actions */}
+//             <div className="flex items-center gap-3">
+//               {/* Model Selector */}
+//               <button className="flex items-center gap-2 px-4 py-2 bg-[#3a3a3a] hover:bg-[#4a4a4a] rounded-lg transition-colors">
+//                 <span className="text-sm text-gray-300">{selectedModel}</span>
+//                 <ChevronDown className="w-4 h-4 text-gray-400" />
+//               </button>
+
+//               {/* Submit Button */}
+//               <button
+//                 onClick={handleSubmit}
+//                 disabled={!prompt.trim()}
+//                 className="p-2 bg-orange-500 hover:bg-orange-600 disabled:bg-gray-600 disabled:cursor-not-allowed rounded-lg transition-colors"
+//                 aria-label="Send message"
+//               >
+//                 <ArrowUp className="w-5 h-5 text-white" />
+//               </button>
+//             </div>
+//           </div>
+//         </div>
+
+//         {/* Suggestion Pills */}
+//         <div className="flex items-center justify-center gap-3 mt-6">
+//           {suggestions.map((suggestion) => {
+//             const Icon = suggestion.icon;
+//             return (
+//               <button
+//                 key={suggestion.category}
+//                 className="flex items-center gap-2 px-4 py-2 bg-[#2a2a2a] hover:bg-[#3a3a3a] rounded-full transition-colors border border-gray-700 hover:border-gray-600"
+//               >
+//                 <Icon className="w-4 h-4 text-gray-400" />
+//                 <span className="text-sm text-gray-300">{suggestion.label}</span>
+//               </button>
+//             );
+//           })}
+//         </div>
+//       </div>
+//     </div>
+//   );
+// }
